@@ -34,12 +34,7 @@ $ npm run test:cov
 ## Api
 
 Post
-/registration
-body: username, email, password,
-response: {username, email, user_id}
-
-Post
 /login
-body: email, password,
-response: {username, email, user_id}
+body: username
+response: {_id, username, uid}
 
