@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Res, HttpStatus, HttpException } from '@nestjs/common';
+import { Controller, Post, Body, Res, HttpStatus } from '@nestjs/common';
 import { Response } from 'express';
 import { UserService } from './user.service';
 import { LoginDto } from './dto/login.dto';
@@ -9,7 +9,10 @@ export class UserController {
     constructor(private readonly userService: UserService) { }
 
     @Post('login')
-    async login(@Body() body: LoginDto, @Res({ passthrough: true }) res: Response): Promise<HttpStatus | IError> {
+    async login(
+        @Body() body: LoginDto,
+        @Res({ passthrough: true }) res: Response
+    ): Promise<HttpStatus | IError> {
         try {
             const { username } = body
             const user = await this.userService.login(username);
