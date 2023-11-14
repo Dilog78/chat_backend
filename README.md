@@ -5,6 +5,21 @@ chat app server
 $ npm install
 ```
 
+## Api
+
+Post
+/login
+body: username
+response: {_id, username, uid}
+
+WebSocket
+Events:
+"sendmessage"
+body: JSON {userid: string, message: string}
+Listening
+"message"
+emit body: {message: string, save_message: boolean}
+
 ## Running the app
 
 ```bash
@@ -30,11 +45,4 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
-
-## Api
-
-Post
-/login
-body: username
-response: {_id, username, uid}
 

@@ -11,7 +11,7 @@ export class Message {
     @Prop({ required: true })
     message: string;
 
-    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: "chat", required: true })
+    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: "chat", required: false })
     @Type(() => Chat)
     chat: Chat
 
